@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 const Clairifai = require('clarifai');
 
 const app = new Clairifai.App({
