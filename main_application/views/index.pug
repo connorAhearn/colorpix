@@ -2,5 +2,6 @@ extends layout
 
 block content
   h3 Please enter the url of your image below
-  form(action='')
-    input(type='text')
+  form(method='post' action='/url')
+    input(type='text' name='image')
+    input(type='submit' value='Submit')
