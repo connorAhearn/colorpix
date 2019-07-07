@@ -1,7 +1,12 @@
 extends layout
 
+block head
+  link(rel='stylesheet' href='/stylesheets/index.css')
+
 block content
-  h3 Please enter the url of your image below
-  form(method='post' action='/url')
-    input(type='text' name='image')
-    input(type='submit' value='Submit')
+  div(class='jumbotron')  
+    h3(class="text-center") Please enter the url of your image below
+    form(method='post' action='/url' class='text-center')
+      input(type='text' name='image' id='url')
+      input(type='submit' value='Submit')
+    p(class='text-center') The image url has to end in .jpg or .png in order for us to use it
