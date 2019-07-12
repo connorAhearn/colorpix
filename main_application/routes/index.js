@@ -1,8 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+// Internal module for extrapolating colors from an image
+const get_colors = require('../logic/get_colors');
 
 // NPM module for checking if a url is valid - Ideally would like to remove later
-var validUrl = require('valid-url');
+const validUrl = require('valid-url');
+
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -30,22 +35,29 @@ router.post('/url', function (req, res) {
 
     // the fileExtensionCheck utility function is written near the bottom of the file
     if (fileExtensionCheck(".png", imageUrl)) {
-      form_response = "This is a PNG";
+
+      // check get_colors.js to see this module
+      get_colors(imageUrl, function (colors) {
+        res.send(colors);
+      });
+
     }
     else if (fileExtensionCheck(".jpg", imageUrl)) {
-      form_response = "This is a JPG";
+
+      // check get_colors.js to see this module
+      get_colors(imageUrl, function (colors) {
+        res.send(colors);
+      });
+
     }
     else {
-      form_response = "This url doesn't point to an image";
+      res.send("This URL doesn't point to an image");
     }
 
   }
   else {
-    form_response = "It's not a valid url!";
+    res.send("This isn't a valid URL");
   }
-
-  // Send the response to the user
-  res.send(form_response);
 
 });
 
@@ -56,7 +68,7 @@ router.post('/url', function (req, res) {
  * @param {String} url - The URL in question
  */
 function fileExtensionCheck(extension, url) {
-  return url.indexOf(extension , url.length - 4) != -1;
+  return url.indexOf(extension, url.length - 4) != -1;
 }
 
 module.exports = router;
