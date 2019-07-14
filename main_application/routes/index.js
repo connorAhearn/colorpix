@@ -27,26 +27,15 @@ router.post('/url', function (req, res) {
   // Taking the user input from the POST request
   let imageUrl = req.body.image;
 
-  // Form response message - will be filled conditionally
-  let form_response;
-
   // Checking if the image url is valid using the valid-url package
   if (validUrl.isUri(imageUrl)) {
 
     // the fileExtensionCheck utility function is written near the bottom of the file
-    if (fileExtensionCheck(".png", imageUrl)) {
+    if (fileExtensionCheck(".png", imageUrl) || fileExtensionCheck(".jpg", imageUrl)) {
 
       // check get_colors.js to see this module
       get_colors(imageUrl, function (colors) {
-        res.send(colors);
-      });
-
-    }
-    else if (fileExtensionCheck(".jpg", imageUrl)) {
-
-      // check get_colors.js to see this module
-      get_colors(imageUrl, function (colors) {
-        res.send(colors);
+        res.render('result', { title: "Results", image_colors: colors });
       });
 
     }

@@ -50,8 +50,8 @@ module.exports = function (image_url, callback) {
         }
     );
 
+    // If the function runs into a strange error, return an empty array
     return [];
-
     
 }
 
