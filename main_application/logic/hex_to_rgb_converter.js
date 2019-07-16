@@ -25,14 +25,14 @@ function hex_pair_value(number) {
     let small_digit = number.charAt(1);
     let big_digit = number.charAt(0);
 
-    let small = hex_value(small_digit);
-    let big = hex_value(big_digit);
+    let small = from_hex_value(small_digit);
+    let big = from_hex_value(big_digit);
 
     return big * 16 + small;
 
 }
 
-function hex_value(number) {
+function from_hex_value(number) {
     switch (number) {
         case '0':
             return 0;
