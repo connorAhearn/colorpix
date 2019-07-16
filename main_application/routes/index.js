@@ -4,6 +4,9 @@ const router = express.Router();
 // Internal module for extrapolating colors from an image
 const get_colors = require('../logic/get_colors');
 
+// Internal module for filling a color scheme with ML generated colors
+const get_scheme = require('../logic/get_scheme');
+
 // NPM module for checking if a url is valid - Ideally would like to remove later
 const validUrl = require('valid-url');
 
@@ -35,7 +38,14 @@ router.post('/url', function (req, res) {
 
       // check get_colors.js to see this module
       get_colors(imageUrl, function (colors) {
-        res.render('result', { title: "Results", image_colors: colors });
+
+        // check get_scheme.js to see this module
+        get_scheme(colors, function (color_scheme) {
+
+          // Renders the result webpage with the resulting colorscheme
+          res.render('result', { title: "Results", image_colors: color_scheme });
+
+        });
       });
 
     }

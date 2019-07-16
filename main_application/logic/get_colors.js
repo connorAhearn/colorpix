@@ -46,7 +46,6 @@ module.exports = function (image_url, callback) {
     ).then(
         function () {
             callback(image_colors);
-            return image_colors;
         }
     );
 
