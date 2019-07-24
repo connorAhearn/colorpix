@@ -1,4 +1,4 @@
-function convert(hex) {
+function get_decimal(hex) {
 
     let color;
 
@@ -25,14 +25,14 @@ function hex_pair_value(number) {
     let small_digit = number.charAt(1);
     let big_digit = number.charAt(0);
 
-    let small = from_hex_value(small_digit);
-    let big = from_hex_value(big_digit);
+    let small = get_decimal_value(small_digit);
+    let big = get_decimal_value(big_digit);
 
     return big * 16 + small;
 
 }
 
-function from_hex_value(number) {
+function get_decimal_value(number) {
     switch (number) {
         case '0':
             return 0;
@@ -75,4 +75,4 @@ function from_hex_value(number) {
     }
 }
 
-module.exports = convert;
+module.exports = get_decimal;

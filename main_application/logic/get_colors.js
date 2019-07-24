@@ -35,7 +35,6 @@ module.exports = function (image_url, callback) {
 
                     // Adding the colour to the array
                     image_colors.push(color_obj.raw_hex);
-                    console.log("added " + color_obj.raw_hex);
                 }
             });
         },
