@@ -1,13 +1,22 @@
 extends layout
 
-block head
-  link(rel='stylesheet' href='/stylesheets/index.css')
-
 block content
+  //- Row class helps in vertical centering of jumbotron
   div(class='row h-75')
-    div(class='jumbotron col-sm-12 align-self-center')  
+    div(class='jumbotron col-sm-12 align-self-center border')  
+
+
       h3(class="text-center") Please enter the url of your image below
-      form(method='post' action='/url' class='text-center')
-        input(type='text' name='image' id='url')
-        input(type='submit' value='Submit')
+
+      //- form id is required when using a button tag for submit
+      form(method='post' action='/url' class='text-center' id='homepage')
+
+        //- div is related to grouping the button and text input together
+        div(class='input-group input-group-lg mb-3')
+          input(type='text' class='form-control' name='image' placeholder='Image URL')
+
+          //- also related to grouping inputs
+          div(class='input-group-append')
+            button(class='btn btn-outline-secondary' type='submit' form='homepage') Submit
+
       p(class='text-center') The image url has to end in .jpg or .png in order for us to use it

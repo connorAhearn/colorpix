@@ -1,6 +1,28 @@
 extends layout
+block head
+  link(rel='stylesheet' href='/stylesheets/results.css')
 
 block content
-    ul
-        each color in image_colors
-            li= color
+
+  div(class='row h-75')
+    div(class='jumbotron border border-secondary col-sm-12 align-self-center ')  
+        h1(class='text-center pb-1') Results
+        h6(class='text-center') A matching colorscheme for the provided image can be found below
+        hr
+        ul(class='border border-secondary rounded list-unstyled text-center')
+            each color in image_colors
+
+                //- First item needs rounded corners on the top
+                if image_colors.indexOf(color) === 0
+                    li(class='p-3 rounded-top' style='background-color: ' + color)
+                        h3= color
+
+                //- Last item needs rounded corners on the bottom
+                else if image_colors.indexOf(color) === 4
+                    li(class='p-3 rounded-bottom' style='background-color: ' + color)
+                        h3= color
+
+                //- The rest are not rounded - Each li has a background color of the color it contains
+                else
+                    li(class='p-3' style='background-color: ' + color)
+                        h3= color

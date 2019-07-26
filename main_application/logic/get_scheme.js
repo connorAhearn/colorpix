@@ -3,8 +3,9 @@ const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 const http = new XMLHttpRequest();
 const url = "http://colormind.io/api/";
 
-// Converts hex codes to an RGB array of size 3
-const hex = require('./hex_to_rgb_converter');
+// Modules for converting between color formats
+const hex2rgb = require('./hex_to_rgb_converter');
+const rgb2hex = require('./rgb_to_hex_converter');
 
 const get_scheme = function (colors, callback) {
 
@@ -12,7 +13,7 @@ const get_scheme = function (colors, callback) {
 
     // For each color provided, add the RGB value to our input array
     colors.forEach(function (color) {
-        inputs.push(hex(color));
+        inputs.push(hex2rgb(color));
     });
 
     // Have our other 5 color slots filled
@@ -29,8 +30,14 @@ const get_scheme = function (colors, callback) {
     // Event listener that prints a colorscheme anytime a successful API request is made
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
+            
             let palette = JSON.parse(http.responseText).result;
-            callback(palette);
+
+            let hex_codes = [];
+
+            palette.forEach(rgb_color => hex_codes.push(rgb2hex(rgb_color)));
+
+            callback(hex_codes);
         }
     }
 

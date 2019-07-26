@@ -51,12 +51,12 @@ router.post('/url', function (req, res) {
 
     }
     else {
-      res.send("This URL doesn't point to an image");
+      res.send("This URL doesn't point to an image: " + imageUrl);
     }
 
   }
   else {
-    res.send("This isn't a valid URL");
+    res.send("This isn't a valid URL: " + imageUrl);
   }
 
 });
