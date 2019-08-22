@@ -1,0 +1,19 @@
+{
+  "name": "colorpix",
+  "version": "1.0.0",
+  "description": "Finds colors in images and gives users a colorscheme to match the image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connorAhearn/colorpix.git"
+  },
+  "author": "Connor Ahearn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connorAhearn/colorpix/issues"
+  },
+  "homepage": "https://github.com/connorAhearn/colorpix#readme"
+}
