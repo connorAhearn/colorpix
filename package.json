@@ -1,28 +1,19 @@
 {
-  "name": "colorpix",
-  "version": "1.0.0",
-  "description": "Finds colors in images and gives users a colorscheme to match the image",
-  "main": "index.js",
+  "name": "main-application",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/connorAhearn/colorpix.git"
-  },
-  "author": "Connor Ahearn",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/connorAhearn/colorpix/issues"
-  },
-  "homepage": "https://github.com/connorAhearn/colorpix#readme",
   "dependencies": {
-    "clarifai": "^2.9.1",
-    "cookie-parser": "^1.4.4",
-    "express": "^4.17.1",
-    "http-errors": "^1.7.3",
-    "morgan": "^1.9.1",
-    "path": "^0.12.7",
+    "clarifai": "^2.9.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4",
+    "valid-url": "^1.0.9",
     "xmlhttprequest": "^1.8.0"
   }
 }
