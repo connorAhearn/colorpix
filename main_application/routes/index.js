@@ -35,7 +35,7 @@ router.post('/url', function (req, res) {
   if (validUrl.isUri(imageUrl)) {
 
     // the fileExtensionCheck utility function is written near the bottom of the file
-    if (fileExtensionCheck(".png", imageUrl) || fileExtensionCheck(".jpg", imageUrl)) {
+    if (fileExtensionCheck(".png", imageUrl) || fileExtensionCheck(".jpg", imageUrl) || fileExtensionCheck(".jpeg", imageUrl)) {
 
       // check get_colors.js to see this module
       get_colors(imageUrl, function (colors) {
