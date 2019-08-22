@@ -68,7 +68,9 @@ router.post('/url', function (req, res) {
  * @param {String} url - The URL in question
  */
 function fileExtensionCheck(extension, url) {
-  return url.indexOf(extension, url.length - 4) != -1;
+  if (extension === ".png" || extension === ".jpg") return url.indexOf(extension, url.length - 4) != -1;
+  else if(extension === ".jpeg") return url.indexOf(extension, url.length - 5) != -1;
+  else return false;
 }
 
 module.exports = router;
