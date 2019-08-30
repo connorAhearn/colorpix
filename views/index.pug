@@ -5,8 +5,9 @@ block content
   div(class='row h-75')
     div(class='jumbotron col-sm-12 align-self-center border')  
 
+      h1(class='text-center') Colorpix
 
-      h3(class="text-center") Please enter the url of your image below
+      h3(class='text-center') Please enter the url of your image below. 
 
       //- form id is required when using a button tag for submit
       form(method='post' action='/url' class='text-center' id='homepage')
@@ -19,4 +20,5 @@ block content
           div(class='input-group-append')
             button(class='btn btn-outline-secondary' type='submit' form='homepage') Submit
 
-      p(class='text-center') The image url has to end in .jpg or .png in order for us to use it
+      p Colorpix is an application that will provide you a 5 color colorscheme that matches the image that you provide above. For the application to work properly, it has to recognize atleast one color in the provided image. Colors are recognized if they cover more than 20% of the image. If there are gradients in the image, the application tries to get an average color, however harsh gradients between very different colors will sometimes yield strange / no results. If the application provides 5 colors and none of the 5 are close to the image, this is one of the "strange" results.  
+      p The image has to be hosted somewhere on the internet, and the URL you provide has to end with .jpg, .png or .jpeg. If there is text following the file extension, you need to erase it from the URL before clicking submit. 
